@@ -1,0 +1,44 @@
+{
+	"name": "Exploration",
+	"image": "441581275790.dkr.ecr.ap-southeast-2.amazonaws.com/np-exploration-python:latest",
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"python.languageServer": "Pylance",
+		"python.linting.enabled": true,
+		"python.linting.pylintEnabled": false,
+		"python.linting.flake8Enabled": true,
+		"python.testing.pytestArgs": [
+			"tests"
+		],
+		"python.testing.unittestEnabled": false,
+		"python.testing.nosetestsEnabled": false,
+		"python.testing.pytestEnabled": true,
+		"python.venvPath": "/root/.cache/pypoetry/virtualenvs/"
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"ms-python.python",
+		"koszti.snowflake-driver-for-sqltools",
+		"ms-python.vscode-pylance",
+		"donjayamanne.python-environment-manager"
+	],
+
+	"containerEnv": {
+		"NIB_USERNAME": "${localEnv:NIB_USERNAME}",
+		//"SF_AUTH_SOCKET_PORT": "40000"
+	},
+
+	"postCreateCommand": "np_exploration_python/configure.sh"
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [40000, 40000]
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "pip install poetry && poetry install",
+	// "postCreateCommand": "poetry install",
+
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	// "remoteUser": "vscode"
+}

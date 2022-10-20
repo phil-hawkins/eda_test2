@@ -1,0 +1,22 @@
+{
+    "sqltools.connections": [
+        {
+            "authenticator": "EXTERNALBROWSER",
+            "ocspOptions": {
+                "ocspFailOpen": true
+            },
+            "snowflakeOptions": {
+                "clientSessionKeepAlive": true,
+                "clientSessionKeepAliveHeartbeatFrequency": 3600,
+                "role": "NIB_DWH"
+            },
+            "previewLimit": 50,
+            "driver": "Snowflake",
+            "username": "",
+            "name": "BUILD_PROD",
+            "database": "BUILD_PROD",
+            "account": "ly01550.ap-southeast-2",
+            "warehouse": "GROUP_GENERAL"
+        }
+    ]
+}

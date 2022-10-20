@@ -1,0 +1,15 @@
+env:
+  RQP_REGION: ap-southeast-2
+  RQP_REPOSITORY: ${BUILDKITE_PIPELINE_SLUG}
+  RQP_APPLICATION: ${BUILDKITE_PIPELINE_SLUG}
+  RQP_APPLICATION_VERSION: 1.0.${BUILDKITE_BUILD_NUMBER}-${BUILDKITE_BRANCH}
+  RQP_SLICE: ${BUILDKITE_BRANCH}
+  RQP_LINE_OF_BUSINESS: etdp
+
+steps:
+  - name: ':docker: Build and Publish Exploration Image'
+    command: .buildkite/scripts/build_publish.sh
+    plugins:
+      - ssh://git@github.com/nib-group/image-publish-buildkite-plugin.git#v3.3.0:
+    agents:
+      queue: elastic
