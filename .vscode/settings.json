@@ -12,7 +12,7 @@
             },
             "previewLimit": 50,
             "driver": "Snowflake",
-            "username": "",
+            "username": "phillip.hawkins@nib.com.au",
             "name": "BUILD_PROD",
             "database": "BUILD_PROD",
             "account": "ly01550.ap-southeast-2",
